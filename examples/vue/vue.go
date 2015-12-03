@@ -537,8 +537,8 @@ func (v *Vue) Eval(expression string) *js.Object {
 //
 // Retrieve a value from the Vue instance given an expression.
 // Expressions that throw errors will be suppressed and return undefined.
-func (v *Vue) Get(expression string) {
-	v.Call("$get", expression)
+func (v *Vue) Get(expression string) *js.Object {
+	return v.Call("$get", expression)
 }
 
 // vm.$set( keypath, value )
