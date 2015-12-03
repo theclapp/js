@@ -57,11 +57,13 @@ func Directive(name string, opt js.M) {
 	vue.Call("directive", name, opt)
 }
 
-func Extend(opt js.M) *js.Object {
-	return vue.Call("extend", opt)
+func Extend(opt js.M) *Vue {
+	return &Vue{
+		Object: vue.Call("extend", opt),
+	}
 }
 
-func RegisterComponent(name string, cpnt *js.Object) {
+func RegisterComponent(name string, cpnt *Vue) {
 	vue.Call("component", name, cpnt)
 }
 
